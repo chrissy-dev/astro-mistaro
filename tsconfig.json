@@ -4,15 +4,13 @@
 "exclude": ["dist"],
   "compilerOptions": {
     "paths": {
-      "@config/*": [
-        "src/config/*"
-      ],
-      "@types": [
-        "src/types/index.ts"
-      ],
-      "@types/*": [
-        "src/types/*"
-      ]
+      "@config/*": ["src/config/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@types": ["src/types/index.ts"],
+      "@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"]
     }
   }
 }

@@ -12,6 +12,7 @@ export const siteConfig = siteSchema.parse({
     title: "Astro Mistaro",
     description: "Long-lived, content-driven websites built with Astro.",
     locale: "en-GB",
+    ogImage: "/og-image.jpg",
 });
 
 export type SiteConfig = z.infer<typeof siteSchema>;
