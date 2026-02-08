@@ -1,4 +1,7 @@
 # astro-mistaro
+
+[![CI](https://github.com/chrissy-dev/astro-mistaro/actions/workflows/ci.yml/badge.svg)](https://github.com/chrissy-dev/astro-mistaro/actions/workflows/ci.yml)
+
 Personal baseline, shared publicly as a reference.  
 
 Work in progress.
