@@ -1,18 +1,36 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
+import { siteConfig } from "@config/site";
+import type { SEOProps } from "@types";
+
+const { title, description }: SEOProps = Astro.props;
+
+const pageTitle = title
+    ? `${title} · ${siteConfig.title}`
+    : siteConfig.title;
+
+const pageDescription = description ?? siteConfig.description;
 ---
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-        <link rel="sitemap" href="/sitemap-index.xml" />
-    </head>
-	<body>
-		<slot />
-	</body>
+<html lang={siteConfig.locale}>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary SEO -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Sitemap hint -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+</head>
+
+<body>
+<slot />
+</body>
 </html>
