@@ -1,0 +1,25 @@
+---
+import Base from "@layouts/Base.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    date: Date;
+}
+
+const { title, description, date } = Astro.props;
+---
+
+<Base {title} {description}>
+    <main class="mx-auto max-w-2xl p-6 space-y-6">
+        <h1 class="text-3xl font-semibold">{title}</h1>
+
+        <p class="text-sm opacity-60">
+            {date.toLocaleDateString()}
+        </p>
+
+        <article class="prose">
+            <slot />
+        </article>
+    </main>
+</Base>

@@ -1,6 +1,7 @@
 ---
-import Base from "@layouts/Base.astro";
+import MDXLayout from "@layouts/MDXLayout.astro";
 import { getCollection } from "astro:content";
+import { mdxComponents } from "@components/mdx";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -14,20 +15,13 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-
 const { Content } = await post.render();
 ---
 
-<Base title={post.data.title} description={post.data.description}>
-    <main class="mx-auto max-w-2xl p-6 space-y-6">
-        <h1 class="text-3xl font-semibold">{post.data.title}</h1>
-
-        <p class="text-sm opacity-60">
-            {post.data.date.toLocaleDateString()}
-        </p>
-
-        <article class="prose">
-            <Content />
-        </article>
-    </main>
-</Base>
+<MDXLayout
+        title={post.data.title}
+        description={post.data.description}
+        date={post.data.date}
+>
+    <Content components={mdxComponents} />
+</MDXLayout>
