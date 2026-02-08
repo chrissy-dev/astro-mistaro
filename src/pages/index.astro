@@ -1,7 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Base from "@layouts/Base.astro";
 ---
 
-<Layout>
-	<h1>Hello</h1>
-</Layout>
+<Base title="Home">
+    <main class="mx-auto max-w-2xl p-6">
+        <h1 class="text-3xl font-semibold">Astro Mistaro</h1>
+        <p class="mt-2 opacity-70">
+            Opinionated starter for long-lived, content-driven sites.
+        </p>
+    </main>
+</Base>
